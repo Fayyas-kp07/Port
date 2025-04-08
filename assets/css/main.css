@@ -1301,7 +1301,7 @@ section,
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  gap: 5px; /* 👈 Adjust this value for spacing between icon and text */
+  gap: 20px; /* 👈 Adjust this value for spacing between icon and text */
 }
 
 
