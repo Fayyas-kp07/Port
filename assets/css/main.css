@@ -60,7 +60,11 @@
   --surface-color:#5F259F;
   --contrast-color: #ffffff;
 }
-
+@media only screen and (max-width: 480px) {
+  iframe {
+    height: 500px; /* Adjust based on PDF length */
+  }
+}
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
