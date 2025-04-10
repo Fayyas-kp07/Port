@@ -120,159 +120,110 @@
 
           <div class="col-lg-8" data-aos="fade-up">
             <div class="portfolio-description">
-              <h2>Project Objective</h2>
-              <p>This <strong>Coffee Sales Dashboard</strong> analyzes sales data for a coffee shop using <strong>Excel</strong>. The goal is to uncover insights that can improve business performance by examining customer buying patterns, peak sales times, and store activity.</p>
-              <p>By cleaning and structuring the data, we leverage Excel to identify trends such as:</p>
+             <h2>Project Objective</h2>
+              <p>
+                The aim of this project is to analyze customer behavior and claim patterns in a car insurance dataset,
+                in order to derive actionable insights that can help Senior Management optimize the current claims process.
+                The final output is an interactive, logical Tableau Storyboard that flows from customer profile analysis
+                to in-depth claim trends and ends with clear recommendations.
+              </p>             
+                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">         
+              <h2>Steps Followed</h2>
               <ul>
-                <li><strong>Peak sales hours</strong></li>
-                <li><strong>Best-selling products</strong></li>
-                <li><strong>Revenue variations across days, months, and locations</strong></li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
-              </ul>          
-              <h2>Problem Statement</h2>
-              <p>Analyze sales records and build an interactive Excel Dashboard for a coffee shop. Identify trends, patterns, and insights to enhance strategic decision-making and improve sales performance.</p>
-              <p>Key objectives include:</p>
-              <ul>
-                <li>Exploring <strong>product performance</strong></li>
-                <li>Identifying <strong>peak sales periods</strong></li>
-                <li>Understanding <strong>revenue trends</strong></li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+                <li>Performed data cleaning and anomaly correction (e.g., fixed negative car age values).</li>
+                <li>Created multiple <strong>calculated fields</strong>, <strong>parameters</strong>, and <strong>filters</strong> to enable interactive exploration.</li>
+                <li>Built <strong>dashboards</strong> highlighting claims distribution, customer profiles, and risk segments.</li>
+                <li>Designed a <strong>Storyboard</strong> in Tableau that presents a logical narrative, from overview to insights and strategy.</li>
               </ul>
-            
-              <h2>Recommended Analysis</h2>
+              <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">         
+
+              <h2>Storyboard Flow</h2>
+              <ol>
+                <li>Overview & Objective</li>
+                <li>Customer Demographics and Behavior</li>
+                <li>Exploratory Data Analysis (EDA)</li>
+                <li>Claims Analysis and High-Risk Profiling</li>
+                <li>Interactive Views with Filters & Parameters</li>
+                <li>Final Business Insights & Recommendations</li>
+              </ol>
+              <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">         
+
+              <h2>Customer Profile Insights</h2>
               <ul>
-                <li>How do sales vary by day and hour?</li>
-                <li>Are there peak sales times?</li>
-                <li>Total sales revenue per month?</li>
-                <li>Sales trends across different store locations?</li>
-                <li>What is the average price per order?</li>
-                <li>Best-selling products (by quantity & revenue)?</li>
-                <li>Sales trends by product category & size?</li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
-              </ul>
-            
-              <h2>Data Understanding</h2>
-              <p>Dataset: Transaction records from Maven Roasters, a fictitious coffee shop with three locations in NYC.</p>
-              <ul>
-                <li>File Type: Excel</li>
-                <li>Records: 149,116</li>
-                <li>Fields: 11</li>
-                <li>Time Span: Jan 2023 – Jun 2023 (6 months)</li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+                <li>Majority of customers are <strong>female</strong> and <strong>married</strong>.</li>
+                <li>Most hold <strong>high school</strong> or <strong>bachelor’s</strong> degrees. Few are PhD holders.</li>
+                <li>Dominant professions: <strong>Blue collar</strong> and <strong>Clerical</strong>; <strong>Doctors</strong> are the least represented.</li>
+                <li>Age-wise, most customers are between <strong>61–70 years</strong>.</li>
+                <li><strong>SUVs</strong> are the most preferred vehicle; <strong>Panel Trucks</strong> the least.</li>
+                <li>Majority are <strong>non-homeowners</strong> and do <strong>not have parents</strong>.</li>
+                <li>Many earn <strong>&gt;$100,000</strong>, some have <strong>no income</strong>.</li>
+                <li>Vehicles are <strong>mostly used for private purposes</strong>.</li>
               </ul>
 
-              <h2 style="font-weight: 700;">Data Structure</h2>
-              <table>
-                <tr>
-                  <th>Field</th>
-                  <th>Description</th>
-                </tr>
-                <tr>
-                  <td><code>transaction_date</code></td>
-                  <td>Date of transaction</td>
-                </tr>
-                <tr>
-                  <td><code>transaction_time</code></td>
-                  <td>Timestamp of purchase</td>
-                </tr>
-                <tr>
-                  <td><code>store_location</code></td>
-                  <td>Store where purchase happened</td>
-                </tr>
-                <tr>
-                  <td><code>product_detail</code></td>
-                  <td>Product name & size</td>
-                </tr>
-                <tr>
-                  <td><code>category</code></td>
-                  <td>Product category (Coffee, Tea, etc.)</td>
-                </tr>
-                <tr>
-                  <td><code>unit_price</code></td>
-                  <td>Price per unit</td>
-                </tr>
-                <tr>
-                  <td><code>transaction_qty</code></td>
-                  <td>Quantity purchased</td>
-                </tr>
-                <tr>
-                  <td><code>total_bill</code></td>
-                  <td>Total transaction amount</td>
-                </tr>
-              </table>
-              <p></p>
               <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
 
-              <h2> Data Preparation</h2>
-              <p><strong>Data Cleaning & Transformation (Power Query Editor):</strong></p>
+              <h2>  Claims & Risk Insights</h2>
               <ul>
-                <li>Reviewed each column for errors & inconsistencies</li>
-                <li>Standardized product sizes (<code>Sm</code> → Small, <code>Rg</code> → Regular, <code>Lg</code> → Large)</li>
-                <li>Removed leading & trailing spaces from all columns</li>
-                <li>Transformed <code>transaction_time</code> column to HH:MM:SS format</li>
-                <li>Created Total Bill column: <code>unit_price × transaction_qty</code></li>
-                <li>Extracted Day of the Week, Month, and Hour from timestamps</li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+                <li><strong>50%</strong> of customers have <strong>never claimed</strong> insurance.</li>
+                <li><strong>Lower education level = Higher claim frequency</strong>.</li>
+                <li><strong>Higher income</strong> = <strong>More expensive claims</strong>.</li>
+                <li><strong>61+ age group</strong> is high-risk for claims.</li>
+                <li><strong>SUVs</strong> have the highest claim frequency.</li>
+                <li><strong>10%</strong> of claims are in <strong>year 0</strong> – risky for new drivers.</li>
+                <li>High claims after <strong>year 9</strong> – increased risk over time.</li>
+                <li><strong>Repeat claimers</strong> are high-risk.</li>
+                <li><strong>Sports cars</strong> show frequent claims.</li>
               </ul>
+              <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+
+              <h2>Key Calculated Fields</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Field Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Age of Cars</td><td>Adjusted for anomalies</td></tr>
+                  <tr><td>Date, Months, Month Order</td><td>Used for time series analysis</td></tr>
+                  <tr><td>Claim Rate, Total Claims, Claim Type Selection</td><td>Core claim metrics</td></tr>
+                  <tr><td>Total Claim, Current Claim Amount, Overall Claim Amount</td><td>Combined metrics</td></tr>
+                  <tr><td>Dimension Selection, Top N Customers, Historical/Current Claims - </td><td>Interactive parameters</td></tr>
+                </tbody>
+              </table>
+              <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+
+              <h2>Business Recommendations</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Insight</th>
+                    <th>Recommendation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Low home ownership</td><td>No immediate strategy</td></tr>
+                  <tr><td>Low education = high claims</td><td>Increase premiums</td></tr>
+                  <tr><td>High income = luxury car claims</td><td>Charge higher premiums</td></tr>
+                  <tr><td>Above age 50</td><td>Frequent license renewal, eye checks</td></tr>
+                  <tr><td>SUVs = high claims</td><td>Include in premium bracket</td></tr>
+                  <tr><td>New drivers</td><td>Premiums reflect driving experience</td></tr>
+                  <tr><td>Claims after year 5</td><td>Mandatory vehicle inspection</td></tr>
+                  <tr><td>Repeat claimers</td><td>Charge higher premiums</td></tr>
+                  <tr><td>Sports cars</td><td>Include in premium bracket</td></tr>
+                </tbody>
+              </table>
+              <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+
             
-              <h2>Pivot Tables & Dashboard Creation</h2>
-              <p>Pivot Tables & Charts were used to summarize and visualize key trends in Excel:</p>
+              <h2>Additional Recommendations</h2>
               <ul>
-                <li>Line charts for sales trends across the day</li>
-                <li>Horizontal bar charts for daily sales performance</li>
-                <li>Pie & donut charts for product category & size contribution</li>
-                <li>Column charts for store footfall & revenue</li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+                <li>Target <strong>PhD holders</strong>, <strong>professionals</strong>, and <strong>high-income customers</strong>.</li>
+                <li>Run <strong>marketing campaigns</strong> and <strong>promotions</strong> to retain and attract valuable customers.</li>
+                <li>Reward <strong>low-claim</strong> customers with discounts or upgrades.</li>
+                <li>Enhance support for <strong>single parents</strong> (e.g., pickup/drop services).</li>
               </ul>
-            
-              <h2>Dashboard Overview</h2>
-              <p>An interactive and engaging dashboard  was built to help stakeholders explore:</p>
-              <ul>
-                <li>Peak sales hours & busiest days</li>
-                <li>Top-selling products & categories</li>
-                <li>Revenue distribution across stores</li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
-              </ul>
-            
-              <div class="section-divider"></div>
-            
-              <h2>Key Insights</h2>
-              <h6 style="font-weight: 700;">Busiest Days & Times</h6>
-              <ul>
-                <li>Peak hours: 8:00 AM – 10:00 AM (morning rush)</li>
-                <li>Highest sales days: Mondays & Fridays</li>
-              </ul>
-            
-              <h6 style="font-weight: 700;">Product Insights</h6>
-              <ul>
-                <li>Large-sized drinks dominate sales</li>
-                <li>Best-selling products:
-                  <ul>
-                    <li>1st: Barista Espresso</li>
-                    <li>2nd: Brewed Chai Tea</li>
-                  </ul>
-                </li>
-              </ul>
-            
-              <h6 style="font-weight: 700;">Sales Across Store Locations</h6>
-              <ul>
-                <li>Foot traffic is evenly distributed across all stores</li>
-                <li>Sales opportunities remain consistent across locations</li>
-              </ul>
-            
-              <h6 style="font-weight: 700;">Category Contribution</h6>
-              <ul>
-                <li>Coffee & Teacontribute 67% of total sales</li>
-                <li>Coffee alone accounts for 39% of revenue </li>
-              </ul>
-              <p></p>
               <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
 
             </div>
