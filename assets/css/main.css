@@ -181,20 +181,6 @@ h6 {
 }
 
 
-#ProfessionalCertificates {
-  position: relative; /* Keep the container fixed in place */
-  overflow: hidden; /* Prevent container from being moved */
-}
-
-.swiper-container {
-  pointer-events: none; /* Disable touch events on the swiper container */
-}
-
-.swiper-wrapper {
-  pointer-events: none; /* Disable swiper wrapper from responding to touch */
-}
-
-
 
 /* PHP Email Form Messages
 ------------------------------*/
