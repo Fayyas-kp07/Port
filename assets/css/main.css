@@ -96,6 +96,7 @@
   justify-content: center; /* Center the slides */
 }
 
+
 /* Ensure swiper slides don't shift or shrink */
 .swiper-slide {
   flex-shrink: 0; /* Prevent shrinking */
