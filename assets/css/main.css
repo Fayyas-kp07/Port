@@ -233,10 +233,9 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Global Header
---------------------------------------------------------------*/
+/* Global Header */
 .header {
-  --background-color:#3D0066;
+  --background-color: #3D0066;
   --heading-color: #ffffff;
   color: var(--default-color);
   transition: all 0.5s;
@@ -264,7 +263,6 @@ h6 {
 }
 
 @media (max-width: 575px) {
-
   .header .topbar .contact-info i a,
   .header .topbar .contact-info i span {
     font-size: 13px;
@@ -281,6 +279,12 @@ h6 {
   text-decoration: underline;
 }
 
+.header .topbar .social-links {
+  display: flex;
+  justify-content: flex-end; /* Ensure social links are positioned at the right */
+  z-index: 9999; /* Ensure social links are above other elements */
+}
+
 .header .topbar .social-links a {
   color: color-mix(in srgb, var(--contrast-color), transparent 40%);
   line-height: 0;
@@ -292,6 +296,22 @@ h6 {
   color: var(--contrast-color);
 }
 
+@media (max-width: 575px) {
+  .header .topbar .social-links {
+    display: flex;
+    justify-content: center; /* Center the social links on mobile */
+    margin-top: 10px;
+    z-index: 9999; /* Ensure it appears above other elements */
+  }
+
+  .header .topbar .social-links a {
+    margin-left: 10px; /* Adjust spacing */
+    font-size: 18px; /* Adjust icon size */
+    color: var(--contrast-color); /* Ensure icons are visible */
+  }
+}
+
+/* Branding */
 .header .branding {
   min-height: 60px;
   padding: 10px 0;
@@ -459,7 +479,6 @@ h6 {
 }
 
 /* Mobile Navigation */
-
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
@@ -490,8 +509,6 @@ h6 {
     transition: 0.3s;
     z-index: 9998;
   }
-  
-  
 
   .navmenu a,
   .navmenu a:focus {
@@ -527,12 +544,6 @@ h6 {
     background-color: var(--accent-color);
     color: var(--contrast-color);
   }
-
-  /*.navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }*/
 
   .navmenu .active i,
   .navmenu .active:focus i {
