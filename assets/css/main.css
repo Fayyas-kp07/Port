@@ -72,39 +72,6 @@
 
 
 
-/* Ensure the container is fixed in place */
-.container {
-  position: relative; /* Fix the container position */
-  overflow: hidden; /* Prevent the container from overflowing */
-  width: 100%; /* Ensure full width */
-  height: auto; /* Let the height be auto for responsiveness */
-  margin: 0 auto; /* Center the container if needed */
-}
-
-/* Swiper container settings */
-.swiper-container {
-  width: 100%;
-  height: 100%; /* Set appropriate height for the swiper container */
-  position: relative; /* Keeps the swiper in a fixed position */
-  overflow: hidden; /* Hide any overflow content */
-}
-
-/* Prevent the Swiper wrapper from affecting layout */
-.swiper-wrapper {
-  display: flex;
-  transition: transform 0.3s ease; /* Smooth transition */
-  justify-content: center; /* Center the slides */
-}
-
-
-/* Ensure swiper slides don't shift or shrink */
-.swiper-slide {
-  flex-shrink: 0; /* Prevent shrinking */
-  margin-right: 20px; /* Adjust slide spacing if needed */
-}
-
-
-
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
