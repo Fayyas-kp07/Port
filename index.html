@@ -62,7 +62,7 @@
         <a href="index.html" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">Portfolio</h1>
+          <h1 class="sitename">Portfolioo</h1>
           <span>.</span>
         </a>
 
@@ -236,11 +236,11 @@
     <h2>Professional Certificates</h2>
   </div><!-- End Section Title -->
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+   <div class="container" data-aos="fade-up" data-aos-delay="100">
 
     <div class="swiper init-swiper">
-    <script type="application/json" class="swiper-config">
-     {
+      <script type="application/json" class="swiper-config">
+        {
           "loop": true,
           "speed": 400,
           "autoplay": {
@@ -252,6 +252,8 @@
             "type": "bullets",
             "clickable": true
           },
+          "allowTouchMove": false, <!-- Disable touch-based slide movement -->
+          "touchMoveStopPropagation": true, <!-- Prevent swiper's touch event from propagating and affecting parent container -->
           "breakpoints": {
             "320": {
               "slidesPerView": 1,
