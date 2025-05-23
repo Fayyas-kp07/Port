@@ -107,7 +107,7 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <!-- Portfolio Details Section -->
+     <!-- Portfolio Details Section -->
     <section id="Credit Card Financial Dashboard" class="portfolio-details section">
 
       <div class="container" data-aos="fade-up">
@@ -120,160 +120,172 @@
 
           <div class="col-lg-8" data-aos="fade-up">
             <div class="portfolio-description">
-              <h2>Project Objective</h2>
-              <p>This <strong>Coffee Sales Dashboard</strong> analyzes sales data for a coffee shop using <strong>Excel</strong>. The goal is to uncover insights that can improve business performance by examining customer buying patterns, peak sales times, and store activity.</p>
-              <p>By cleaning and structuring the data, we leverage Excel to identify trends such as:</p>
-              <ul>
-                <li><strong>Peak sales hours</strong></li>
-                <li><strong>Best-selling products</strong></li>
-                <li><strong>Revenue variations across days, months, and locations</strong></li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
-              </ul>          
+              <h2>Overview</h2>
+              <p>This <strong>Airbnb 2019 Tableau Dashboard</strong> provides insights into Airbnb listings in New York City, leveraging 
+                <strong>Tableau</strong> to analyze key metrics such as pricing trends, availability, and listing distribution. The goal is to uncover patterns in Airbnb listings to assist hosts, travelers, and policymakers in making informed decisions. Key focus areas include:</p>
+                <ul>
+                  <li><strong>Listing distribution by neighborhood</strong></li>
+                  <li><strong>Price variation across boroughs</strong></li>
+                  <li><strong>Room type analysis</strong></li>
+                  <li><strong>Availability trends</strong></li>
+                  <li><strong>Host activity insights</strong></li>
+                  <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+                </ul>     
               <h2>Problem Statement</h2>
-              <p>Analyze sales records and build an interactive Excel Dashboard for a coffee shop. Identify trends, patterns, and insights to enhance strategic decision-making and improve sales performance.</p>
+              <p>Analyze Airbnb listings in NYC and build an <strong>interactive Tableau dashboard</strong> to help users understand pricing trends, availability, and the impact of location on rental costs. Key objectives include:</p>
               <p>Key objectives include:</p>
               <ul>
-                <li>Exploring <strong>product performance</strong></li>
-                <li>Identifying <strong>peak sales periods</strong></li>
-                <li>Understanding <strong>revenue trends</strong></li>
-                <p></p>
+                <li>Identifying <strong>affordable and premium areas</strong></li>
+                <li>Analyzing <strong>host activity</strong> (single vs. multiple listings)</li>
+                <li>Understanding <strong>room type preferences</strong></li>
+                <li>Exploring <strong>seasonal availability trends</strong></li>
                 <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
               </ul>
             
               <h2>Recommended Analysis</h2>
               <ul>
-                <li>How do sales vary by day and hour?</li>
-                <li>Are there peak sales times?</li>
-                <li>Total sales revenue per month?</li>
-                <li>Sales trends across different store locations?</li>
-                <li>What is the average price per order?</li>
-                <li>Best-selling products (by quantity & revenue)?</li>
-                <li>Sales trends by product category & size?</li>
-                <p></p>
+                <li><strong>What is the average price per borough?</strong></li>
+                <li><strong>How does availability vary across neighborhoods?</strong></li>
+                <li><strong>Which room types are most common?</strong></li>
+                <li><strong>How do prices change based on room type and location?</strong></li>
+                <li><strong>What is the impact of host activity on pricing?</strong></li>
                 <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
               </ul>
+              
             
               <h2>Data Understanding</h2>
-              <p>Dataset: Transaction records from Maven Roasters, a fictitious coffee shop with three locations in NYC.</p>
-              <ul>
-                <li>File Type: Excel</li>
-                <li>Records: 149,116</li>
-                <li>Fields: 11</li>
-                <li>Time Span: Jan 2023 – Jun 2023 (6 months)</li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
-              </ul>
+              <p><strong>Dataset</strong>: Airbnb NYC 2019 listings dataset</p>
+  <ul>
+    <li><strong>File Type:</strong> CSV</li>
+    <li><strong>Records:</strong> 48,895 listings</li>
+    <li><strong>Fields:</strong> 16 columns</li>
+    <li><strong>Time Span:</strong> 📅 2019</li>
+    <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+  </ul>
 
               <h2 style="font-weight: 700;">Data Structure</h2>
               <table>
-                <tr>
-                  <th>Field</th>
-                  <th>Description</th>
-                </tr>
-                <tr>
-                  <td><code>transaction_date</code></td>
-                  <td>Date of transaction</td>
-                </tr>
-                <tr>
-                  <td><code>transaction_time</code></td>
-                  <td>Timestamp of purchase</td>
-                </tr>
-                <tr>
-                  <td><code>store_location</code></td>
-                  <td>Store where purchase happened</td>
-                </tr>
-                <tr>
-                  <td><code>product_detail</code></td>
-                  <td>Product name & size</td>
-                </tr>
-                <tr>
-                  <td><code>category</code></td>
-                  <td>Product category (Coffee, Tea, etc.)</td>
-                </tr>
-                <tr>
-                  <td><code>unit_price</code></td>
-                  <td>Price per unit</td>
-                </tr>
-                <tr>
-                  <td><code>transaction_qty</code></td>
-                  <td>Quantity purchased</td>
-                </tr>
-                <tr>
-                  <td><code>total_bill</code></td>
-                  <td>Total transaction amount</td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th>Field</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>id</code></td><td>Unique listing ID</td></tr>
+                  <tr><td><code>name</code></td><td>Listing name</td></tr>
+                  <tr><td><code>host_id</code></td><td>Host ID</td></tr>
+                  <tr><td><code>host_name</code></td><td>Host name</td></tr>
+                  <tr><td><code>neighbourhood_group</code></td><td>NYC borough (Manhattan, Brooklyn, etc.)</td></tr>
+                  <tr><td><code>neighbourhood</code></td><td>Specific neighborhood name</td></tr>
+                  <tr><td><code>latitude</code></td><td>Geographical latitude</td></tr>
+                  <tr><td><code>longitude</code></td><td>Geographical longitude</td></tr>
+                  <tr><td><code>room_type</code></td><td>Listing type (Entire home, Private room, etc.)</td></tr>
+                  <tr><td><code>price</code></td><td>Price per night</td></tr>
+                  <tr><td><code>minimum_nights</code></td><td>Minimum nights required for booking</td></tr>
+                  <tr><td><code>number_of_reviews</code></td><td>Total reviews for the listing</td></tr>
+                  <tr><td><code>last_review</code></td><td>Date of the last review</td></tr>
+                  <tr><td><code>reviews_per_month</code></td><td>Average monthly reviews</td></tr>
+                  <tr><td><code>calculated_host_listings_count</code></td><td>Number of listings per host</td></tr>
+                  <tr><td><code>availability_365</code></td><td>Available days in a year</td></tr>
+                </tbody>
               </table>
               <p></p>
               <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
 
               <h2> Data Preparation</h2>
-              <p><strong>Data Cleaning & Transformation (Power Query Editor):</strong></p>
+              <p><strong>Data Cleaning & Transformation in Tableau:</strong></p>
               <ul>
-                <li>Reviewed each column for errors & inconsistencies</li>
-                <li>Standardized product sizes (<code>Sm</code> → Small, <code>Rg</code> → Regular, <code>Lg</code> → Large)</li>
-                <li>Removed leading & trailing spaces from all columns</li>
-                <li>Transformed <code>transaction_time</code> column to HH:MM:SS format</li>
-                <li>Created Total Bill column: <code>unit_price × transaction_qty</code></li>
-                <li>Extracted Day of the Week, Month, and Hour from timestamps</li>
-                <p></p>
+                <li>Removed <strong>duplicate</strong> and <strong>incomplete records</strong></li>
+                <li>Converted <code>price</code> and <code>reviews_per_month</code> into <strong>numeric fields</strong></li>
+                <li>Filtered out <strong>outliers</strong> (extremely high/low prices)</li>
+                <li>Categorized <strong>neighbourhood groups</strong> for easy analysis</li>
                 <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
               </ul>
             
-              <h2>Pivot Tables & Dashboard Creation</h2>
-              <p>Pivot Tables & Charts were used to summarize and visualize key trends in Excel:</p>
-              <ul>
-                <li>Line charts for sales trends across the day</li>
-                <li>Horizontal bar charts for daily sales performance</li>
-                <li>Pie & donut charts for product category & size contribution</li>
-                <li>Column charts for store footfall & revenue</li>
-                <p></p>
-                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
-              </ul>
+              <h2>Tableau Dashboard Creation</h2>
+              <p><strong>Key Visualizations in Tableau:</strong></p>
+  <ol>
+    <li>
+      <strong>Map of Listings</strong> (Geospatial Analysis)
+      <ul>
+        <li>Used <code>latitude</code> &amp; <code>longitude</code> to plot listings</li>
+        <li>Applied color coding for <code>neighbourhood_group</code></li>
+       
+       <li>Adjusted <code>size</code> based on <code>price</code></li>
+      </ul>
+    </li> <li>
+      <strong>Price Comparison by Borough</strong> (Bar Chart)
+      <ul>
+        <li><code>neighbourhood_group</code> on the X-axis</li>
+        <li><code>AVG(price)</code> on the Y-axis</li>
+        <li>Sorted in descending order</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Availability Trends</strong> (Line Chart)
+      <ul>
+        <li>Tracked <code>availability_365</code> over time</li>
+        <li>Compared across boroughs</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Room Type Distribution</strong> (Pie Chart)
+      <ul>
+        <li>Showed % share of different <code>room_type</code></li>
+        <li>Highlighted most common listing types</li>
+        <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+      </ul>
+    </li>
+  </ol>
             
               <h2>Dashboard Overview</h2>
-              <p>An interactive and engaging dashboard  was built to help stakeholders explore:</p>
+              <p>The <strong>interactive Tableau Dashboard</strong> allows users to:</p>
               <ul>
-                <li>Peak sales hours & busiest days</li>
-                <li>Top-selling products & categories</li>
-                <li>Revenue distribution across stores</li>
-                <p></p>
+                <li>Explore pricing trends across NYC</li>
+                <li>Identify neighborhoods with the most listings</li>
+                <li>Compare room type availability</li>
+                <li>Analyze host activity and listing density</li>
                 <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
               </ul>
+              
+  <hr />
+  <h2> Key Insights</h2>
+
+  <h6 style="font-weight: 700;">Listing Distribution</h6>
+  <ul>
+    <li>Manhattan has the highest number of Airbnb listings.</li>
+    <li>Brooklyn follows with a significant share.</li>
+  </ul>
+  
+  <h6 style="font-weight: 700;">Price Trends</h6>
+  <ul>
+    <li>Manhattan listings are the most expensive on average.</li>
+    <li>Queens and Bronx offer more budget-friendly options.</li>
+  </ul>
+  
+  <h6 style="font-weight: 700;">Room Type Analysis</h6>
+  <ul>
+    <li>Entire homes are priced significantly higher than private rooms.</li>
+    <li>Shared rooms are the least common and cheapest.</li>
+  </ul>
+  
+  <h6 style="font-weight: 700;">Availability & Host Activity</h6>
+  <ul>
+    <li>Many hosts manage multiple listings, indicating commercial use.</li>
+    <li>Listings with high availability tend to have lower review counts.</li>
+  </ul>
+  
+
+  <hr />
+
+             
+  <div class="section-divider"></div>
             
-              <div class="section-divider"></div>
+              
             
-              <h2>Key Insights</h2>
-              <h6 style="font-weight: 700;">Busiest Days & Times</h6>
-              <ul>
-                <li>Peak hours: 8:00 AM – 10:00 AM (morning rush)</li>
-                <li>Highest sales days: Mondays & Fridays</li>
-              </ul>
-            
-              <h6 style="font-weight: 700;">Product Insights</h6>
-              <ul>
-                <li>Large-sized drinks dominate sales</li>
-                <li>Best-selling products:
-                  <ul>
-                    <li>1st: Barista Espresso</li>
-                    <li>2nd: Brewed Chai Tea</li>
-                  </ul>
-                </li>
-              </ul>
-            
-              <h6 style="font-weight: 700;">Sales Across Store Locations</h6>
-              <ul>
-                <li>Foot traffic is evenly distributed across all stores</li>
-                <li>Sales opportunities remain consistent across locations</li>
-              </ul>
-            
-              <h6 style="font-weight: 700;">Category Contribution</h6>
-              <ul>
-                <li>Coffee & Teacontribute 67% of total sales</li>
-                <li>Coffee alone accounts for 39% of revenue </li>
-              </ul>
-              <p></p>
-              <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+              
+           
 
             </div>
           </div>
@@ -284,7 +296,7 @@
               <ul>
                 <li><strong>Tools</strong> Tableau</li>
                 <li><strong>Skills</strong>Tableau · Data Visualization · Data Analysis · Data preperation · Dashboard desighn</li>
-                <li><a href="https://github.com/Fayyas-kp/Coffee-Shop-Sales-Excel" class="btn-visit align-self-start">Go to Github!</a></li>
+                <li><a href="https://github.com/Fayyas-kp/Airbnb-2019-Tableau" class="btn-visit align-self-start">Go to Github!</a></li>
                 <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
                 <li><a href="https://public.tableau.com/app/profile/fayyas.kp/viz/Airbnb2019_17428966635920/Dashboard" class="btn-visit align-self-start">Go to Dashboard!</a></li>
                 <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
@@ -292,6 +304,20 @@
 
               </ul>
             </div>
+           <!-- 📽️ MP4 Video Preview -->
+<div class="mt-4 text-center">
+    <video controls style="max-width: 100%; height: auto; border-radius: 10px;">
+      <source src="assets/img/Projects/Tableau/Airbnb NYC 2019/Airbnb 2019.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p></p>
+                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+        
+          </div>
+
+        </div>
+
+      </div>
            <!-- 📽️ MP4 Video Preview -->
 <div class="mt-4 text-center">
     <video controls style="max-width: 100%; height: auto; border-radius: 10px;">
