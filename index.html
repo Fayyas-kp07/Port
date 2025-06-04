@@ -487,8 +487,6 @@
 
 
 
-
-
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
@@ -498,11 +496,10 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-bottom: 15px;
-    flex-wrap: nowrap;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    font-weight: 430;
     position: relative;
-  font-weight: 430; /* Semi-bold (adjusted boldness) */
-
   }
 
   .portfolio-flters {
@@ -510,15 +507,16 @@
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 8px;
+    gap: 7px;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .portfolio-flters li {
     cursor: pointer;
-    padding: 4px 5px;
+    padding: 4px 10px;
     background-color: #eee;
-    border-radius: 20px;
+    border-radius: 18px;
     transition: 0.3s;
     user-select: none;
   }
@@ -528,75 +526,50 @@
     color: #fff;
   }
 
-/* Make sure the swiper container has relative positioning */
-.portfolio-details-slider {
-  position: relative; /* Important for absolute positioning of buttons */
-}
-
-/* Position buttons to the left and right edges */
-.swiper-button-prev {
-  position: absolute;
-  top: 110%;
-  left: -10px;           /* Distance from left edge */
-  transform: translateY(-50%);
-  order: initial;       /* Reset order */
-  z-index: 10;          /* Make sure buttons are on top */
-}
-
-.swiper-button-next {
-  position: absolute;
-  top: 110%;
-  right: -10px;          /* Distance from right edge */
-  transform: translateY(-50%);
-  order: initial;       /* Reset order */
-  z-index: 10;
-}
-
-/* Keep the button styles as you wrote */
-.swiper-button-prev,
-.swiper-button-next {
-  background: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
+ .portfolio-navigation-buttons {
   display: flex;
-  align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
-  user-select: none;
-  color: #5F259F;
-  /* Remove order here */
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px; /* Add margin top to push buttons down */
+  margin-bottom: 25px;
 }
 
-/* Target the arrow icons */
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 15px;
-  color: #5F259F;
-}
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background: #5F259F;
-}
+  .swiper-button-prev,
+  .swiper-button-next {
+    background: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    color: #5F259F;
+    position: static; /* Center below filters */
+  }
 
-.swiper-button-prev:hover::after,
-.swiper-button-next:hover::after {
-  color: #fff;
-}
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 15px;
+    color: #5F259F;
+  }
 
-/* Remove flex order styles for buttons inside filters-wrapper */
-.portfolio-filters-wrapper > .swiper-button-prev,
-.portfolio-filters-wrapper > .swiper-button-next {
-  flex-shrink: initial; /* Optional reset */
-}
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background: #5F259F;
+  }
 
-  /* Portfolio item styling */
+  .swiper-button-prev:hover::after,
+  .swiper-button-next:hover::after {
+    color: #fff;
+  }
+
   .portfolio-item {
-    /* Use flex basis and max width to get 3 items per row */
     flex: 0 0 33.3333%;
     max-width: 33.3333%;
     box-sizing: border-box;
@@ -610,7 +583,6 @@
     border-radius: 6px;
   }
 
-  /* The swiper-slide wrapping 6 items in 2 rows of 3 */
   .swiper-slide > .row {
     display: flex;
     flex-wrap: wrap;
@@ -626,7 +598,7 @@
     font-size: 0.9rem;
   }
 
-  /* Responsive adjustments */
+  /* Responsive */
   @media (max-width: 768px) {
     .portfolio-item {
       flex: 0 0 50%;
@@ -639,13 +611,9 @@
       flex: 0 0 100%;
       max-width: 100%;
     }
-    .portfolio-filters-wrapper {
+    .portfolio-navigation-buttons {
+      flex-direction: row;
       flex-wrap: wrap;
-      justify-content: center;
-    }
-    .swiper-button-prev, .swiper-button-next {
-      order: initial;
-      margin: 5px;
     }
   }
 </style>
@@ -656,30 +624,33 @@
   </div>
 
   <div class="container">
+    <!-- Filter Buttons -->
     <div class="portfolio-filters-wrapper">
-      <div class="swiper-button-prev"></div>
-
       <ul class="portfolio-flters" id="portfolioFilters">
-  <li data-filter="*" class="filter-active">All</li>
-    <li data-filter=".filter-Python">Python</li>
-  <li data-filter=".filter-Excel">Excel</li>
-  <li data-filter=".filter-SQL">SQL</li>
-  <li data-filter=".filter-Power-BI">Power BI</li>
-  <li data-filter=".filter-Tableau">Tableau</li>
-</ul>
+        <li data-filter="*" class="filter-active">All</li>
+        <li data-filter=".filter-Python">Python</li>
+        <li data-filter=".filter-Excel">Excel</li>
+        <li data-filter=".filter-SQL">SQL</li>
+        <li data-filter=".filter-Power-BI">Power BI</li>
+        <li data-filter=".filter-Tableau">Tableau</li>
+      </ul>
+    </div>
 
-
+    <!-- Navigation Buttons Below Filters -->
+    <div class="portfolio-navigation-buttons">
+      <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
 
     <!-- Swiper Slider -->
     <div class="swiper portfolio-project-swiper">
       <div class="swiper-wrapper" id="portfolioSlidesWrapper">
-        <!-- Slides injected by JS -->
+        <!-- Slides dynamically injected by JS -->
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -818,6 +789,7 @@
     });
   });
 </script>
+
 
     
   <div class="d-flex justify-content-center mt-5">
