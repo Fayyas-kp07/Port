@@ -123,125 +123,178 @@
               <h2>Project Objective</h2>
               <p>
                 To develop a comprehensive credit card weekly dashboard that provides real-time insights into key performance metrics and trends, enabling stakeholders to monitor and analyze credit card operations effectively.              </p>
+                                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
                 <h2>Table of Contents</h2>
                 <ul>
                     <li><a href="#import">Import Data to SQL Database</a></li>
                     <li><a href="#dax">DAX Queries</a></li>
                     <li><a href="#insights">Project Insights</a></li>
                     <li><a href="#run">How to Run the Project</a></li>
-                </ul>            
+                                              <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+                                            </ul>     
             <section id="import">
-                <h2>Import Data to SQL Database</h2>
-                <h6 style="font-weight: 600;">Step 1: Prepare CSV Files</h6>
-                <ul>
-                    <li>credit_card.csv</li>
-                    <li>customer.csv</li>
-                    <li>cust_add.csv</li>
-                    <li>cc_add.csv</li>
-                </ul>
-                <h6 style="font-weight: 600;">Step 2: Create Tables</h6>
-                <pre><code class="language-sql">-- cust_detail table
-            CREATE TABLE cust_detail (
-                Client_Num INT,
-                Customer_Age INT,
-                Gender VARCHAR(5),
-                Dependent_Count INT,
-                Education_Level VARCHAR(50),
-                Marital_Status VARCHAR(20),
-                State_cd VARCHAR(50),
-                Zipcode VARCHAR(20),
-                Car_Owner VARCHAR(5),
-                House_Owner VARCHAR(5),
-                Personal_Loan VARCHAR(5),
-                Contact VARCHAR(50),
-                Customer_Job VARCHAR(50),
-                Income INT,
-                Cust_Satisfaction_Score INT
-            );
-            
-            -- cc_detail table
-            CREATE TABLE cc_detail (
-                Client_Num INT,
-                Card_Category VARCHAR(20),
-                Annual_Fees INT,
-                Activation_30_Days INT,
-                Customer_Acq_Cost INT,
-                Week_Start_Date DATE,
-                Week_Num VARCHAR(20),
-                Qtr VARCHAR(10),
-                current_year INT,
-                Credit_Limit DECIMAL(10,2),
-                Total_Revolving_Bal INT,
-                Total_Trans_Amt INT,
-                Total_Trans_Ct INT,
-                Avg_Utilization_Ratio DECIMAL(10,3),
-                Use_Chip VARCHAR(10),
-                Exp_Type VARCHAR(50),
-                Interest_Earned DECIMAL(10,3),
-                Delinquent_Acc VARCHAR(5)
-            );
-            </code></pre>
-                <h6 style="font-weight: 600;">Step 3: Import CSV Files</h6>
-                <pre><code class="language-sql">COPY cust_detail
-            FROM 'D:\Data Analyst\Project\Powe bi\New folder\customer.csv' 
-            DELIMITER ',' 
-            CSV HEADER;
-            
-            COPY cc_detail
-            FROM 'D:\Data Analyst\Project\Powe bi\New folder\credit_card.csv' 
-            DELIMITER ',' 
-            CSV HEADER;
-            </code></pre>
-            </section>
-            
-            <section id="dax">
-                <h2>DAX Queries</h2>
-                <h6 style="font-weight: 600;">Create Age Group</h6>
-                <pre><code class="language-dax">
-                AgeGroup = SWITCH(
-                TRUE(),
-                'public cust_detail'[customer_age] < 30, "20-30",
-                'public cust_detail'[customer_age] >= 30 && 'public cust_detail'[customer_age] < 40, "30-40",
-                'public cust_detail'[customer_age] >= 40 && 'public cust_detail'[customer_age] < 50, "40-50",
-                'public cust_detail'[customer_age] >= 50 && 'public cust_detail'[customer_age] < 60, "50-60",
-                'public cust_detail'[customer_age] >= 60, "60+",
-                "unknown"
-            )</code></pre>
-            
-                <h6 style="font-weight: 600;">Create Income Group</h6>
-                <pre><code class="language-dax">
-                IncomeGroup = SWITCH(
-                TRUE(),
-                'public cust_detail'[income] < 35000, "Low",
-                'public cust_detail'[income] >= 35000 && 'public cust_detail'[income] <70000, "Med",
-                'public cust_detail'[income] >70000, "High",
-                "unknown"
-            )</code></pre>
-            
-                <h6 style="font-weight: 600;">Calculate Revenue</h6>
-                <pre><code class="language-dax">
-                Revanue = 'public cc_detail'[annual_fees] + 
-                      'public cc_detail'[total_trans_amt] + 
-                      'public cc_detail'[interest_earned]</code></pre>
-            
-                <h6 style="font-weight: 600;">Current and Previous Week Revenue</h6>
-                <pre><code class="language-dax">
-                Week_num2 = WEEKNUM('public cc_detail'[week_start_date])
-            
-            Current_week_Revanue = CALCULATE(
-                SUM('public cc_detail'[Revanue]),
-                FILTER(
-                    ALL('public cc_detail'),
-                    'public cc_detail'[Week_num2] = MAX('public cc_detail'[Week_num2])
-            ))
-            
-            Previous_week_Revanue = CALCULATE(
-                SUM('public cc_detail'[Revanue]),
-                FILTER(
-                    ALL('public cc_detail'),
-                    'public cc_detail'[Week_num2] = MAX('public cc_detail'[Week_num2])-1
-            ))</code></pre>
-            </section>
+               <h2 id="import">Import Data to SQL Database</h2>
+
+<h5 style="font-weight: 600;">Step 1: Prepare CSV Files</h5>
+<ul>
+  <li>credit_card.csv</li>
+  <li>customer.csv</li>
+  <li>cust_add.csv</li>
+  <li>cc_add.csv</li>
+</ul>
+
+<h5 style="font-weight: 600;">Step 2: Create Tables</h5>
+<details>
+  <summary><strong>Click to expand SQL: Create Tables</strong></summary>
+  <pre><code class="language-sql">
+-- cust_detail table
+CREATE TABLE cust_detail (
+    Client_Num INT,
+    Customer_Age INT,
+    Gender VARCHAR(5),
+    Dependent_Count INT,
+    Education_Level VARCHAR(50),
+    Marital_Status VARCHAR(20),
+    State_cd VARCHAR(50),
+    Zipcode VARCHAR(20),
+    Car_Owner VARCHAR(5),
+    House_Owner VARCHAR(5),
+    Personal_Loan VARCHAR(5),
+    Contact VARCHAR(50),
+    Customer_Job VARCHAR(50),
+    Income INT,
+    Cust_Satisfaction_Score INT
+);
+
+-- cc_detail table
+CREATE TABLE cc_detail (
+    Client_Num INT,
+    Card_Category VARCHAR(20),
+    Annual_Fees INT,
+    Activation_30_Days INT,
+    Customer_Acq_Cost INT,
+    Week_Start_Date DATE,
+    Week_Num VARCHAR(20),
+    Qtr VARCHAR(10),
+    current_year INT,
+    Credit_Limit DECIMAL(10,2),
+    Total_Revolving_Bal INT,
+    Total_Trans_Amt INT,
+    Total_Trans_Ct INT,
+    Avg_Utilization_Ratio DECIMAL(10,3),
+    Use_Chip VARCHAR(10),
+    Exp_Type VARCHAR(50),
+    Interest_Earned DECIMAL(10,3),
+    Delinquent_Acc VARCHAR(5)
+);
+  </code></pre>
+</details>
+
+<h5 style="font-weight: 600;">Step 3: Import CSV Files</h5>
+<details>
+  <summary><strong>Click to expand SQL: Import CSVs</strong></summary>
+  <pre><code class="language-sql">
+COPY cust_detail
+FROM 'D:\Data Analyst\Project\Powe bi\New folder\customer.csv' 
+DELIMITER ',' 
+CSV HEADER;
+
+COPY cc_detail
+FROM 'D:\Data Analyst\Project\Powe bi\New folder\credit_card.csv' 
+DELIMITER ',' 
+CSV HEADER;
+  </code></pre>
+</details>
+                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+
+<h2 id="dax">DAX Queries</h2>
+
+<details>
+  <summary><strong>Click to expand DAX: Create Age Group</strong></summary>
+  <pre><code class="language-dax">
+AgeGroup = SWITCH(
+  TRUE(),
+  'public cust_detail'[customer_age] < 30, "20-30",
+  'public cust_detail'[customer_age] >= 30 && 'public cust_detail'[customer_age] < 40, "30-40",
+  'public cust_detail'[customer_age] >= 40 && 'public cust_detail'[customer_age] < 50, "40-50",
+  'public cust_detail'[customer_age] >= 50 && 'public cust_detail'[customer_age] < 60, "50-60",
+  'public cust_detail'[customer_age] >= 60, "60+",
+  "unknown"
+)
+  </code></pre>
+</details>
+
+<details>
+  <summary><strong>Click to expand DAX: Create Income Group</strong></summary>
+  <pre><code class="language-dax">
+IncomeGroup = SWITCH(
+  TRUE(),
+  'public cust_detail'[income] < 35000, "Low",
+  'public cust_detail'[income] >= 35000 && 'public cust_detail'[income] <70000, "Med",
+  'public cust_detail'[income] >70000, "High",
+  "unknown"
+)
+  </code></pre>
+</details>
+
+<details>
+  <summary><strong>Click to expand DAX: Calculate Revenue</strong></summary>
+  <pre><code class="language-dax">
+Revanue = 'public cc_detail'[annual_fees] + 
+          'public cc_detail'[total_trans_amt] + 
+          'public cc_detail'[interest_earned]
+  </code></pre>
+</details>
+
+<details>
+  <summary><strong>Click to expand DAX: Week-wise Revenue Comparison</strong></summary>
+  <pre><code class="language-dax">
+Week_num2 = WEEKNUM('public cc_detail'[week_start_date])
+
+Current_week_Revanue = CALCULATE(
+  SUM('public cc_detail'[Revanue]),
+  FILTER(
+    ALL('public cc_detail'),
+    'public cc_detail'[Week_num2] = MAX('public cc_detail'[Week_num2])
+))
+
+Previous_week_Revanue = CALCULATE(
+  SUM('public cc_detail'[Revanue]),
+  FILTER(
+    ALL('public cc_detail'),
+    'public cc_detail'[Week_num2] = MAX('public cc_detail'[Week_num2]) - 1
+))
+  </code></pre>
+</details>
+
+<!-- Reuse the same styling block -->
+<style>
+  details {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    background: #f9f9f9;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 12px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: Consolas, monospace;
+  }
+</style>
+                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+
             
             <section id="insights">
                 <h2>Project Insights</h2>
@@ -262,16 +315,16 @@
                     <li>TX, NY & CA contribute 68% of revenue</li>
                     <li>Activation rate: 57.5%</li>
                     <li>Delinquent rate: 6.06%</li>
-                </ul>
+                                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+</ul>
             </section>
-           <section id="run">
                 <h2 >How to Run the Project</h2>
                 <ol>
                     <li>Set up the PostgreSQL database and import the data using the provided SQL scripts.</li>
                     <li>Open the Power BI dashboard file and connect it to the PostgreSQL database.</li>
                     <li>To test real-time functionality, add data to <code>cust_add.csv</code> and <code>cc_add.csv</code> and refresh the Power BI dashboard.</li>
-                </ol>
-            </section>
+                               <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+ </ol>
 
             </div>
           </div>
@@ -282,15 +335,18 @@
               <ul>
                 <li><strong>Tools</strong> PostgreSQL, Power BI</li>
                 <li><strong>Skills</strong> PostgreSQL · Microsoft power Bi · Data Visualization · Dashboard desighn</li>
+                                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
                 <li><a href="https://github.com/Fayyas-kp/Credit-Card-Financial-Dashboard-Power-Bi" class="btn-visit align-self-start">Go to Github!</a></li>
-              </ul>
+                              <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+</ul>
             </div>
            <!-- 📽️ MP4 Video Preview -->
 <div class="mt-4 text-center">
   <video controls style="max-width: 100%; height: auto; border-radius: 10px;">
     <source src="assets/img/Projects/Power Bi/Credit Card Financial Dashboard/Dashboard.mp4" type="video/mp4">
     Your browser does not support the video tag.
-  </video>
+  </video>                <hr style="border-top: 1px dashed #000000; margin-top: 0.5rem; margin-bottom: 1rem;">
+
 </div>
           </div>
 
